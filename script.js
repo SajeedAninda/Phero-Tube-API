@@ -7,7 +7,7 @@ let loadSection = async () => {
     sectionDataArr.forEach((section) => {
         let div = document.createElement("div");
         div.innerHTML = `
-        <button onclick="loadCards('${section?.category_id}')" class="bg-[#25252533] py-3 px-4 rounded-lg text-[#252525] font-medium">${section.category}</button>`
+        <button onclick="loadCards('${section?.category_id}')" class="bg-[#25252533] py-2 px-4 rounded-lg text-[#252525] font-medium active:bg-[#FF1F3D] active:text-white">${section.category}</button>`
         sectionSegment.appendChild(div);
     })
 }
@@ -46,8 +46,11 @@ let loadCards = async (categoryID) => {
                             </div>
                             <div class="right-content">
                                 <h3 class="font-bold">${cardData?.title}</h3>
+                                <div class="flex gap-x-2">
                                 <p class="text-[#171717b3] text-sm">${cardData?.authors[0]?.profile_name}</p>
-                                <p class="text-sm">${cardData.others.views}</p>
+                                <p class="text-[#171717b3] text-sm">${cardData?.authors[0]?.verified ? "<img src='bluetick.png'>" : ""} </p>
+                                </div>
+                                <p class="text-[#171717b3] text-sm">${cardData.others.views} views</p>
                             </div>
                         </div>
                     </div>
