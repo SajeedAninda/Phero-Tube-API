@@ -34,11 +34,16 @@ let loadCards = async (categoryID) => {
     }
     else {
         cardDataArr.forEach((cardData) => {
+            let seconds = cardData?.others?.posted_date;
+            let hrs = Math.floor(seconds / 3600);
+            let secondsLeft = seconds % 3600;
+            let mins = Math.floor(secondsLeft / 60);
             let cardDiv = document.createElement("div");
             cardDiv.innerHTML = `
             <div class="card flex flex-col gap-4">
-                        <div class="img-div">
+                        <div class="img-div relative">
                             <img class="rounded-xl  h-[180px] w-[100%]" src="${cardData?.thumbnail}" alt="">
+                            ${hrs || mins ? `<p class="text-xs bg-[#171717] text-white inline rounded-xl p-1 absolute bottom-3 right-2">${hrs}hrs ${mins}mins ago</p>` : ''}
                         </div>
                         <div class="content-div flex gap-3">
                             <div class="left-img">
