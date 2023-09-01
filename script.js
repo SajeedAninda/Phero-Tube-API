@@ -37,7 +37,7 @@ let loadCards = async (categoryID, shouldSort = false) => {
     if (cardDataArr.length <= 0) {
         let emptyDiv = document.createElement("div");
         emptyDiv.classList = "flex flex-col gap-4 mt-3 justify-center items-center text-center w-full mx-auto";
-        emptyDiv.innerHTML = `<img class="w-[180px] h-[180px]" src="Icon.png" alt="">
+        emptyDiv.innerHTML = `<img class=" w-[120px] h-[120px] md:w-[180px] md:h-[180px]" src="Icon.png" alt="">
                             <h1 class="text-3xl text-[#171717] font-bold">Oops!! Sorry, There is no<br> content here</h1>
         `
         noCardSegment.appendChild(emptyDiv);
