@@ -18,7 +18,7 @@
 
         .bg {
             background: rgb(146, 229, 217);
-            background: linear-gradient(163deg, rgba(146, 229, 217, 1) 0%, rgba(253, 187, 187, 1) 0%, rgba(248, 211, 147, 1) 100%);
+            background: linear-gradient(163deg, rgba(146, 229, 217, 1) 0%, rgba(251, 180, 190, 1) 0%, rgba(255, 103, 124, 1) 100%);
         }
     </style>
 </head>
@@ -29,38 +29,21 @@
             <div class="collapse collapse-plus bg w-full h-fit mb-6 shadow-lg">
                 <input type="radio" name="my-accordion-3" checked="checked" />
                 <div class="collapse-title text-2xl font-bold">
-                    Scope of <strong>Var</strong>, <strong>Let</strong>, and <strong>Const</strong> in JavaScript
+                    Discuss the scope of <strong>Var</strong>, <strong>Let</strong>, and <strong>Const</strong>
                 </div>
                 <div class="collapse-content text-lg">
-                    <p>The scope of a variable determines where it can be accessed in JavaScript code. There are
-                        three types of scope in JavaScript:
+                    <p><strong>Var, Let and Const</strong> all are variable and the scope of a variable means where it
+                        can be accessed. There are three types of Scopes in Javascript: <br>
+                        <strong>Global Scope:</strong> Variables that are defined outside any functions of blocks are
+                        global scoped. They can be accessed from anywhere in the code. <br>
+                        <strong>Function Scope:</strong> This refers to variables that are declared inside a function.
+                        They can be only accessed from that function. <br>
+                        <strong>Block Scope:</strong> This means the variables that are declared inside a block of code,
+                        inside curly braces, like inside a loop or if-else statement. They can be only used inside that
+                        block. <br>
 
-                    <ol>
-                        <li><strong>Global scope:</strong> Variables declared outside of any function are globally
-                            scoped. They can be
-                            accessed from anywhere in the code.</li>
-                        <li><strong>Function scope:</strong> Variables declared inside a function are function scoped.
-                            They can only be
-                            accessed from within that function.</li>
-                        <li><strong>Block scope:</strong> Variables declared inside a block of code (such as a for loop
-                            or if statement)
-                            are
-                            block scoped. They can only be accessed from within that block of code.</li> <br>
-                    </ol>
-                    The keywords var, let, and const all create variables, but they have different scoping rules.
-                    <ul>
-                        <li><strong>Var variables:</strong> Var variables are function scoped. This means that they can
-                            be accessed from
-                            anywhere within the function where they are declared, and from any nested functions.</li>
-                        <li><strong>Let variables:</strong> Let variables are block scoped. This means that they can
-                            only be accessed
-                            from
-                            within the block of code where they are declared.</li>
-                        <li><strong>Const variables:</strong> Const variables are also block scoped, but they cannot be
-                            re-assigned once
-                            they
-                            are declared.</li>
-                    </ul>
+                        While Var, Let and Const all create variable, they have different scopes. Let and Const are
+                        block scoped while var is global or function scoped.
                     </p>
                 </div>
             </div>
@@ -68,47 +51,24 @@
             <div class="collapse collapse-plus bg w-full h-fit mb-6 shadow-lg">
                 <input type="radio" name="my-accordion-3" checked="checked" />
                 <div class="collapse-title text-2xl font-bold">
-                    Use Cases of <strong>Null</strong> and <strong>Defined</strong>
+                    Tell Us The Use Cases of <strong>Null</strong> and <strong>Defined</strong>
                 </div>
                 <div class="collapse-content text-lg">
                     <p>
-                        Some scenarios where null and undefined are utilized in JavaScript are listed below:
-
-                    <ol>
-                        <li>
-                            1. <strong>Representing a empty value:</strong> null can be employed to signify a value,
-                            such, as a missing
-                            or unset
-                            value. For instance you can use null to symbolize the absence of a value in a variable that
-                            hasn't been assigned yet.
-                        </li>
-
-                        <li>
-                            2. <strong>Representing a unknown value:</strong> undefined is used to represent a value
-                            like a deleted or
-                            non existent
-                            value. As an example you can use undefined to denote the state of a variable that has been
-                            declared but not yet assigned any value.
-                        </li>
-
-                        <li>
-                            3. <strong>Controlling code execution:</strong> Both null and undefined can be used to
-                            direct the flow of
-                            execution in your JavaScript code. For instance you may utilize null to check if a variable
-                            has
-                            been assigned a value or you can employ undefined to verify if a variable has been declared.
-                        </li>
-
-                        <li>
-                            4. <strong>Controlling code execution:</strong> Leveraging null and undefined can contribute
-                            to
-                            readability and maintainability of your JavaScript code. For example of using phrases, like
-                            "empty " employing null to represent a value would make your code more readable and easier
-                            for
-                            others to understand.
-                        </li>
-                    </ol>
-
+                        Some examples of how <strong>Null</strong> and <strong>Undefined</strong> are used in JavaScript
+                        are given below: <br>
+                        <strong>1. Representing an empty value:</strong> Null can be used to represent a missing or
+                        unset value. For
+                        example, it can be used to express a lack of value in a variable that hasn't been assigned a
+                        value yet. <br>
+                        <strong>2. Representing an unknown value:</strong> Undefined can be used to represent a value
+                        that to denote the
+                        state of a variable that has been already declared but the value hasn't been assigned. <br>
+                        <strong>3. Controlling code execution:</strong> Null and undefined variables can be used in
+                        JavaScript code
+                        control execution flow, indicating assigned values or declared variables. <br>
+                        <strong>4. Code Understanding:</strong> Null and undefined JavaScript representations enhance
+                        readability and maintainability, making code easier to read and understand.
                     </p>
                 </div>
             </div>
@@ -116,25 +76,26 @@
             <div class="collapse collapse-plus bg w-full h-fit mb-6 shadow-lg">
                 <input type="radio" name="my-accordion-3" checked="checked" />
                 <div class="collapse-title text-2xl font-bold">
-                    What is meant by <strong>REST API</strong>?
+                    What do you mean by <strong>REST API</strong>?
                 </div>
                 <div class="collapse-content text-lg">
-                    <p>
-                        <strong>REST API</strong> stands for <strong>Representational State Transfer Application
-                            Programming Interface</strong>. It is an
-                        architectural style for designing web services. REST APIs are based on the HTTP protocol and use
-                        standard HTTP methods to access resources.
-
-                        The four main HTTP methods used in REST APIs are: <br>
-
-                        <strong>GET:</strong> Used to retrieve a resource. <br>
-                        <strong>POST:</strong> Used to create a new resource. <br>
-                        <strong>PUT:</strong> Used to update an existing resource. <br>
-                        <strong>DELETE:</strong> Used to delete a resource. <br>
-                        REST APIs are often used to exchange data between different applications. For example, a REST
-                        API could be used to allow a mobile app to access data from a web server.
-                    </p>
+                    The full form of <strong>REST API</strong> is <strong>Representational State Transfer Application
+                        Programming Interface</strong>. REST
+                    APIs are built on the HTTP protocol and access resources using conventional HTTP methods. The four
+                    primary HTTP methods used in REST APIs are as follows: <br>
+                    <strong>GET:</strong> It is Used to retrieve Data. <br>
+                    <strong>POST:</strong> It is used to create new resource or data. <br>
+                    <strong>PUT:</strong> Used for updating an existing resource. <br>
+                    <strong>DELETE:</strong> This is used to delete a resource. <br>
+                    REST APIs are frequently used to transmit data between apps. A REST API, for example, may be used to
+                    allow a website to retrieve data from a web server.
                 </div>
+            </div>
+
+            <div class="flex-1 flex justify-center">
+                <a href="index.html"><button
+                        class="bg-[#FF1F3D] py-1 px-2 md:py-3 md:px-4 rounded-lg text-white font-medium">Go
+                        Home</button></a>
             </div>
 
         </div>

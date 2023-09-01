@@ -12,18 +12,28 @@ let loadSection = async () => {
     })
 }
 
-let loadCards = async (categoryID) => {
+let tempID = "1000";
+let isSorted = false;
+
+let loadCards = async (categoryID, shouldSort = false) => {
+    tempID = categoryID;
     let url = `https://openapi.programming-hero.com/api/videos/category/${categoryID}`;
     let res = await fetch(url);
     let data = await res.json();
     let cardDataArr = data?.data;
-    // console.log(cardDataArr);
-    // console.log(typeof cardDataArr);
+
+    cardDataArr.forEach((cardData) => {
+        cardData.others.views = parseFloat(cardData.others.views.replace(/[^0-9.]/g, ''));
+    });
+    if (shouldSort) {
+        cardDataArr.sort((a, b) => b.others.views - a.others.views);
+    }
+
     let cardSegment = document.querySelector("#card-segment");
     let noCardSegment = document.querySelector("#no-card-segment");
     cardSegment.textContent = "";
     noCardSegment.textContent = "";
-    // console.log(cardSegment);
+
     if (cardDataArr.length <= 0) {
         let emptyDiv = document.createElement("div");
         emptyDiv.classList = "flex flex-col gap-4 mt-3 justify-center items-center text-center w-full mx-auto";
@@ -32,6 +42,7 @@ let loadCards = async (categoryID) => {
         `
         noCardSegment.appendChild(emptyDiv);
     }
+    
     else {
         cardDataArr.forEach((cardData) => {
             let seconds = cardData?.others?.posted_date;
@@ -55,7 +66,7 @@ let loadCards = async (categoryID) => {
                                 <p class="text-[#171717b3] text-sm">${cardData?.authors[0]?.profile_name}</p>
                                 <p class="text-[#171717b3] text-sm">${cardData?.authors[0]?.verified ? "<img src='bluetick.png'>" : ""} </p>
                                 </div>
-                                <p class="text-[#171717b3] text-sm">${cardData.others.views} views</p>
+                                <p class="text-[#171717b3] text-sm">${cardData.others.views}K views</p>
                             </div>
                         </div>
                     </div>
@@ -63,15 +74,13 @@ let loadCards = async (categoryID) => {
             cardSegment.appendChild(cardDiv);
         })
     }
-
-
 }
 
-
-
-
-
-
+document.querySelector("#sortBtn").addEventListener("click", () => {
+    isSorted = !isSorted;
+    loadCards(tempID, isSorted);
+    isSorted = !isSorted;
+});
 
 loadCards("1000");
 loadSection();
