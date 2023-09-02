@@ -12,18 +12,18 @@ let loadSection = async () => {
     })
 }
 
-let tempID = "1000";
+let tempCategoryID = "1000";
 let isSorted = false;
 
 let loadCards = async (categoryID, shouldSort = false) => {
-    tempID = categoryID;
+    tempCategoryID = categoryID;
     let url = `https://openapi.programming-hero.com/api/videos/category/${categoryID}`;
     let res = await fetch(url);
     let data = await res.json();
     let cardDataArr = data?.data;
 
     cardDataArr.forEach((cardData) => {
-        cardData.others.views = parseFloat(cardData.others.views.replace(/[^0-9.]/g, ''));
+        cardData.others.views = parseFloat(cardData.others.views.replace("K", ''));
     });
     if (shouldSort) {
         cardDataArr.sort((a, b) => b.others.views - a.others.views);
@@ -42,7 +42,7 @@ let loadCards = async (categoryID, shouldSort = false) => {
         `
         noCardSegment.appendChild(emptyDiv);
     }
-    
+
     else {
         cardDataArr.forEach((cardData) => {
             let seconds = cardData?.others?.posted_date;
@@ -78,7 +78,7 @@ let loadCards = async (categoryID, shouldSort = false) => {
 
 document.querySelector("#sortBtn").addEventListener("click", () => {
     isSorted = !isSorted;
-    loadCards(tempID, isSorted);
+    loadCards(tempCategoryID, isSorted);
     isSorted = !isSorted;
 });
 
